@@ -7,19 +7,42 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    lazy var dogs : [String] = {
+        var names : [String] = ["chihuahua", "dalmata", "labrador", "pastoraleman", "perrito"]
+        return names.flatMap({ (name) -> String? in
+            return "\(name).jpg"
+        })
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.reloadData()
+        print(dogs)
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+}
+
+extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dogs.count
     }
-
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DogCell", for: indexPath) as! DogCollectionViewCell
+        let dog = dogs[indexPath.row]
+        cell.titleLabel.text = dog
+        cell.imageView.image = UIImage(named: dog)
+        cell.imageView.contentMode = .scaleAspectFit
+        return cell
+    }
 }
 
