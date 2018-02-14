@@ -61,6 +61,12 @@ class MemoryGame {
                     completion(true)
                 })
             } else {
+                
+                cardOne.isUserInteractionEnabled = false
+                cardTwo.isUserInteractionEnabled = false
+                
+                cardOne.alpha = 0.5
+                cardTwo.alpha = 0.5
                 completion(true)
             }
             
