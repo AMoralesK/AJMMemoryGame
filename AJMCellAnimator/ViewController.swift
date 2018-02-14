@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         print("El arreglo \(names)")
         let shuffled = shuffleArray(items: names)
         print("El arreglo SHUFFLED \(shuffled)")
-        return names.flatMap({ (name) -> String? in
+        return shuffled.flatMap({ (name) -> String? in
             return "\(name).jpg"
         })
     }()
