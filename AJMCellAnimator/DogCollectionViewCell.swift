@@ -21,4 +21,8 @@ class DogCollectionViewCell: UICollectionViewCell {
             titleLabel.alpha = 0
         }
     }
+    
+    func matches(cell : DogCollectionViewCell) -> Bool {
+        return dog == cell.dog
+    }
 }

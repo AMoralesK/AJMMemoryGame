@@ -58,8 +58,9 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
         }
         
         guard let cardOne = cardOne, let cardTwo = cardTwo else { return }
-        game.revealCards(cardOne: cardOne, cardTwo: cardTwo, completion: { (status) in
-            
+        game.revealCards(cardOne: cardOne, cardTwo: cardTwo, completion: { [unowned self](status) in
+            self.cardOne = nil
+            self.cardTwo = nil
         })
     }
     
