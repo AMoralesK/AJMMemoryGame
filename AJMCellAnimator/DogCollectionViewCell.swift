@@ -12,5 +12,13 @@ class DogCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    
+    var dog : String! {
+        didSet {
+            titleLabel.text = dog
+            imageView.image = UIImage(named: dog)
+            imageView.contentMode = .scaleAspectFit
+            imageView.alpha = 0
+            titleLabel.alpha = 0
+        }
+    }
 }
