@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 
+
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -68,8 +70,17 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
         return cell
     }
     
+    func isValid(_ card :  DogCollectionViewCell) -> Bool {
+        guard let lastTrackedCard = lastTrackedCard else { return true }
+        guard let indexPathOne =  collectionView.indexPath(for: card), let indexPathTwo = collectionView.indexPath(for: lastTrackedCard) else { return false }
+        return (indexPathOne == indexPathTwo) ? false : true
+    }
     func prepare(_ card :  DogCollectionViewCell) {
        
+        if !isValid(card) {
+            return
+        }
+        
         if cardOne == nil {
             cardOne = card
         } else if cardTwo == nil {
@@ -86,6 +97,9 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! DogCollectionViewCell
         prepare(cell)
+        
+        lastTrackedCard = cell
+
     }
 }
 
