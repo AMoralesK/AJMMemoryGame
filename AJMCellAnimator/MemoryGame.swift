@@ -54,17 +54,66 @@ class MemoryGame {
             })
         }
         
-        animation.addCompletion { (position) in
+        animation.addCompletion { [weak self](position) in
             print(position)
+            if !cardOne.matches(cell: cardTwo) {
+                self?.reverseCards(cardOne: cardOne, cardTwo: cardTwo, completion: { (status) in
+                    completion(true)
+                })
+            } else {
+                completion(true)
+            }
             
-            completion(true)
         }
         
         animation.startAnimation()
     }
     
-    func reverseCards(cardOne : DogCollectionViewCell, cardTwo : DogCollectionViewCell) {
+    func reverseCards(cardOne : DogCollectionViewCell, cardTwo : DogCollectionViewCell, completion:@escaping (_ status : Bool) ->() ) {
         
+        let animation = UIViewPropertyAnimator(duration: 2.0, curve: .easeIn)
+        animation.addAnimations {
+            
+            UIView.animateKeyframes(
+                withDuration: 2.0,
+                delay: 0,
+                options: .calculationModeCubic,
+                animations: {
+                    
+                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/2, animations: {
+                        cardOne.layer.transform = CATransform3DMakeRotation(-CGFloat(Double.pi / 2), 0.0, 1.0, 0.0)
+                        cardOne.titleLabel.alpha = 0
+                        cardOne.imageView.alpha = 0
+                        
+                        cardTwo.layer.transform = CATransform3DMakeRotation(-CGFloat(Double.pi / 2), 0.0, 1.0, 0.0)
+                        cardTwo.titleLabel.alpha = 0
+                        cardTwo.imageView.alpha = 0
+                       
+                        
+                    })
+                    
+                    UIView.addKeyframe(withRelativeStartTime: 1/2, relativeDuration: 1/2, animations: {
+                        cardOne.layer.transform = CATransform3DMakeRotation(0, 0.0, 1.0, 0.0)
+                        cardOne.titleLabel.alpha = 0
+                        cardOne.imageView.alpha = 0
+                        
+                        cardTwo.layer.transform = CATransform3DMakeRotation(0, 0.0, 1.0, 0.0)
+                        cardTwo.titleLabel.alpha = 0
+                        cardTwo.imageView.alpha = 0
+      
+                        
+                    })
+
+
+            },
+                completion: { _ in
+            })
+        }
+        
+        animation.addCompletion { (position) in
+           completion(true)
+        }
+        animation.startAnimation()
     }
     
 }
