@@ -20,17 +20,36 @@ class ViewController: UIViewController {
     
     lazy var dogs : [String] = {
         var names : [String] = ["chihuahua", "dalmata", "labrador", "pastoraleman", "perrito"]
+        names = names + names
+        print("El arreglo \(names)")
+        let shuffled = shuffleArray(items: names)
+        print("El arreglo SHUFFLED \(shuffled)")
         return names.flatMap({ (name) -> String? in
             return "\(name).jpg"
         })
     }()
+    
+    var lastTrackedCard : DogCollectionViewCell?
+    
+    
+    func shuffleArray(items: [String]) -> [String] {
+        var items = items
+        var shuffled = [String]()
+        for i in 0..<items.count
+        {
+            let rand = Int(arc4random_uniform(UInt32(items.count)))
+            shuffled.append(items[rand])
+            items.remove(at: rand)
+        }
+        return shuffled
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
-        print(dogs)
         
     }
 
