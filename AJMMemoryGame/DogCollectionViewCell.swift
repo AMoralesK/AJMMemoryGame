@@ -19,6 +19,7 @@ class DogCollectionViewCell: UICollectionViewCell {
             imageView.contentMode = .scaleAspectFit
             imageView.alpha = 0
             titleLabel.alpha = 0
+            layer.cornerRadius = CGFloat(10.0)
         }
     }
     
