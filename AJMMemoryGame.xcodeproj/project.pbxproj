@@ -18,7 +18,7 @@
 
 /* Begin PBXFileReference section */
 		602927852033B327009BB982 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
-		60E2FC4820337D2900F3CBC6 /* AJMCellAnimator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJMCellAnimator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		60E2FC4820337D2900F3CBC6 /* AJMMemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJMMemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E2FC4B20337D2900F3CBC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60E2FC4D20337D2900F3CBC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		60E2FC5020337D2900F3CBC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		60E2FC3F20337D2800F3CBC6 = {
 			isa = PBXGroup;
 			children = (
-				60E2FC4A20337D2900F3CBC6 /* AJMCellAnimator */,
+				60E2FC4A20337D2900F3CBC6 /* AJMMemoryGame */,
 				60E2FC4920337D2900F3CBC6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		60E2FC4920337D2900F3CBC6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60E2FC4820337D2900F3CBC6 /* AJMCellAnimator.app */,
+				60E2FC4820337D2900F3CBC6 /* AJMMemoryGame.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		60E2FC4A20337D2900F3CBC6 /* AJMCellAnimator */ = {
+		60E2FC4A20337D2900F3CBC6 /* AJMMemoryGame */ = {
 			isa = PBXGroup;
 			children = (
 				60E2FC4B20337D2900F3CBC6 /* AppDelegate.swift */,
@@ -67,15 +67,15 @@
 				60E2FC5420337D2900F3CBC6 /* LaunchScreen.storyboard */,
 				60E2FC5720337D2900F3CBC6 /* Info.plist */,
 			);
-			path = AJMCellAnimator;
+			path = AJMMemoryGame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		60E2FC4720337D2900F3CBC6 /* AJMCellAnimator */ = {
+		60E2FC4720337D2900F3CBC6 /* AJMMemoryGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMCellAnimator" */;
+			buildConfigurationList = 60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMMemoryGame" */;
 			buildPhases = (
 				60E2FC4420337D2900F3CBC6 /* Sources */,
 				60E2FC4520337D2900F3CBC6 /* Frameworks */,
@@ -85,9 +85,9 @@
 			);
 			dependencies = (
 			);
-			name = AJMCellAnimator;
+			name = AJMMemoryGame;
 			productName = AJMCellAnimator;
-			productReference = 60E2FC4820337D2900F3CBC6 /* AJMCellAnimator.app */;
+			productReference = 60E2FC4820337D2900F3CBC6 /* AJMMemoryGame.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -106,7 +106,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMCellAnimator" */;
+			buildConfigurationList = 60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMMemoryGame" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -119,7 +119,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60E2FC4720337D2900F3CBC6 /* AJMCellAnimator */,
+				60E2FC4720337D2900F3CBC6 /* AJMMemoryGame */,
 			);
 		};
 /* End PBXProject section */
@@ -284,7 +284,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U4J2U6VS3H;
-				INFOPLIST_FILE = AJMCellAnimator/Info.plist;
+				INFOPLIST_FILE = AJMMemoryGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thekairuz.AJMCellAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -299,7 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U4J2U6VS3H;
-				INFOPLIST_FILE = AJMCellAnimator/Info.plist;
+				INFOPLIST_FILE = AJMMemoryGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thekairuz.AJMCellAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -311,7 +311,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMCellAnimator" */ = {
+		60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMMemoryGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60E2FC5820337D2900F3CBC6 /* Debug */,
@@ -320,7 +320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMCellAnimator" */ = {
+		60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMMemoryGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60E2FC5B20337D2900F3CBC6 /* Debug */,
