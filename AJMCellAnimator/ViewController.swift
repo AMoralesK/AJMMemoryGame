@@ -12,6 +12,12 @@ import AVFoundation
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    var cardOne : DogCollectionViewCell?
+    var cardTwo : DogCollectionViewCell?
+    
+    let game = MemoryGame()
+    
     lazy var dogs : [String] = {
         var names : [String] = ["chihuahua", "dalmata", "labrador", "pastoraleman", "perrito"]
         return names.flatMap({ (name) -> String? in
@@ -39,54 +45,27 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DogCell", for: indexPath) as! DogCollectionViewCell
         let dog = dogs[indexPath.row]
-        cell.titleLabel.text = dog
-        cell.imageView.image = UIImage(named: dog)
-        cell.imageView.contentMode = .scaleAspectFit
-        cell.imageView.alpha = 0
-        cell.titleLabel.alpha = 0
+        cell.dog = dog
         return cell
+    }
+    
+    func prepare(_ card :  DogCollectionViewCell) {
+       
+        if cardOne == nil {
+            cardOne = card
+        } else if cardTwo == nil {
+            cardTwo = card
+        }
+        
+        guard let cardOne = cardOne, let cardTwo = cardTwo else { return }
+        game.revealCards(cardOne: cardOne, cardTwo: cardTwo, completion: { (status) in
+            
+        })
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! DogCollectionViewCell
-        var transform = CATransform3DIdentity
-        transform.m34 = -0.002
-       
-        cell.layer.sublayerTransform = transform
-
-        let animation = UIViewPropertyAnimator(duration: 2.0, curve: .easeIn)
-        animation.addAnimations {
-            
-            UIView.animateKeyframes(
-                withDuration: 2.0,
-                delay: 0,
-                options: .calculationModeCubic,
-                animations: {
-                    
-                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
-                        cell.layer.transform = CATransform3DMakeRotation(CGFloat(M_PI_2), 0.0, 1.0, 0.0)
-                       
-                        
-                    })
-                    
-                    UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
-                        
-                        cell.layer.transform = CATransform3DMakeRotation(CGFloat(0), 0.0, 1.0, 0.0)
-                        cell.titleLabel.alpha = 1
-                        cell.imageView.alpha = 1
-                        
-                    })
-                    
-                    UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
-                        
-                    })
-            },
-                completion: { _ in
-            })
-        }
-       
-        animation.startAnimation()
-        
+        prepare(cell)
     }
 }
 
