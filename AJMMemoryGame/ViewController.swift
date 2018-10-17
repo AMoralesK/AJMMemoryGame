@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var cardOne : DogCollectionViewCell?
     var cardTwo : DogCollectionViewCell?
     
-    let game = MemoryGame()
+    let game : MemoryGame = DogMemoryGame()
     
     lazy var dogs : [String] = {
         var names : [String] = ["chihuahua", "dalmata", "labrador", "pastoraleman", "perrito"]
@@ -75,29 +75,30 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
         guard let indexPathOne =  collectionView.indexPath(for: card), let indexPathTwo = collectionView.indexPath(for: lastTrackedCard) else { return false }
         return (indexPathOne == indexPathTwo) ? false : true
     }
+
     func prepare(_ card :  DogCollectionViewCell) {
-       
+
         if !isValid(card) {
             return
         }
-        
+
         if cardOne == nil {
             cardOne = card
         } else if cardTwo == nil {
             cardTwo = card
         }
-        
+
         guard let cardOne = cardOne, let cardTwo = cardTwo else { return }
         game.revealCards(cardOne: cardOne, cardTwo: cardTwo, completion: { [unowned self](status) in
             self.cardOne = nil
             self.cardTwo = nil
         })
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! DogCollectionViewCell
         prepare(cell)
-        
+
         lastTrackedCard = cell
 
     }
