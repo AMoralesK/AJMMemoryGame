@@ -11,16 +11,30 @@ import UIKit
 
 class MemoryGame<T : Flippable>{
     
-    private var cardOne : T?
-    private var cardTwo : T?
-    private var lastTrackedCard : T?
-
-    init(cardOne : T? = nil, cardTwo : T? = nil) { }
+    private var cardOne : T? = nil
+    private var cardTwo : T? = nil
+    private var lastTrackedCard : T? = nil
     
-    func isValid(_ card :  T, collectionView : UICollectionView) -> Bool {
+    private func isValid(_ card :  T, collectionView : UICollectionView) -> Bool {
         guard let lastTrackedCard = lastTrackedCard else { return true }
         guard let indexPathOne =  collectionView.indexPath(for: card as! UICollectionViewCell), let indexPathTwo = collectionView.indexPath(for: lastTrackedCard as! UICollectionViewCell) else { return false }
         return (indexPathOne == indexPathTwo) ? false : true
+    }
+    
+    private func flipAndReveal(card : T, by degrees : CGFloat) {
+        let tempCard = card as! UIView
+        tempCard.layer.transform = CATransform3DMakeRotation(degrees, 0.0, 1.0, 0.0)
+        let hasFinished = degrees == CGFloat(0)
+        if hasFinished {
+            card.reveal()
+        }
+    }
+    
+    
+    private func flipAndUnreveal(card : T, by degrees : CGFloat) {
+        let tempCard = card as! UIView
+        tempCard.layer.transform = CATransform3DMakeRotation(degrees, 0.0, 1.0, 0.0)
+        card.unreveal()
     }
     
     
@@ -52,7 +66,7 @@ class MemoryGame<T : Flippable>{
     }
     
     
-    func revealCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool) ->()) {
+    private func revealCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool) ->()) {
         
     
         let cardOne : UIView = temp1 as! UIView
@@ -73,25 +87,14 @@ class MemoryGame<T : Flippable>{
                 options: .calculationModeCubic,
                 animations: {
                     
-                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: {
-                        cardOne.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi / 2), 0.0, 1.0, 0.0)
-                        cardTwo.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi / 2), 0.0, 1.0, 0.0)
-                        
+                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/3, animations: { [weak self] in
+                        self?.flipAndReveal(card: temp1, by: CGFloat(Double.pi / 2))
+                        self?.flipAndReveal(card: temp2, by: CGFloat(Double.pi / 2))
                     })
                     
-                    UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: {
-                        
-                        cardOne.layer.transform = CATransform3DMakeRotation(CGFloat(0), 0.0, 1.0, 0.0)
-                        
-                        temp1.reveal()
-                        //cardOne.titleLabel.alpha = 1
-                        //cardOne.imageView.alpha = 1
-                        
-                        cardTwo.layer.transform = CATransform3DMakeRotation(CGFloat(0), 0.0, 1.0, 0.0)
-                        temp2.reveal()
-                       // cardTwo.titleLabel.alpha = 1
-                       // cardTwo.imageView.alpha = 1
-                        
+                    UIView.addKeyframe(withRelativeStartTime: 1/3, relativeDuration: 1/3, animations: { [weak self] in
+                        self?.flipAndReveal(card: temp1, by: CGFloat(0))
+                        self?.flipAndReveal(card: temp2, by: CGFloat(0))
                     })
                     
                     UIView.addKeyframe(withRelativeStartTime: 2/3, relativeDuration: 1/3, animations: {
@@ -123,10 +126,7 @@ class MemoryGame<T : Flippable>{
         animation.startAnimation()
     }
     
-    func reverseCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool) ->() ) {
-        
-        let cardOne : UIView = temp1 as! UIView
-        let cardTwo : UIView  = temp2 as! UIView
+    private func reverseCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool) ->() ) {
         
         let animation = UIViewPropertyAnimator(duration: 2.0, curve: .easeIn)
         animation.addAnimations {
@@ -137,32 +137,14 @@ class MemoryGame<T : Flippable>{
                 options: .calculationModeCubic,
                 animations: {
                     
-                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/2, animations: {
-                        cardOne.layer.transform = CATransform3DMakeRotation(-CGFloat(Double.pi / 2), 0.0, 1.0, 0.0)
-                        temp1.unreveal()
-                       // cardOne.titleLabel.alpha = 0
-                       // cardOne.imageView.alpha = 0
-                        
-                        cardTwo.layer.transform = CATransform3DMakeRotation(-CGFloat(Double.pi / 2), 0.0, 1.0, 0.0)
-                        temp2.unreveal()
-                        //  cardTwo.titleLabel.alpha = 0
-                      //  cardTwo.imageView.alpha = 0
-                        
-                        
+                    UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1/2, animations: { [weak self] in
+                        self?.flipAndUnreveal(card: temp1, by: -CGFloat(Double.pi / 2))
+                        self?.flipAndUnreveal(card: temp2, by: -CGFloat(Double.pi / 2))
                     })
                     
-                    UIView.addKeyframe(withRelativeStartTime: 1/2, relativeDuration: 1/2, animations: {
-                        cardOne.layer.transform = CATransform3DMakeRotation(0, 0.0, 1.0, 0.0)
-                        temp1.unreveal()
-                      //  cardOne.titleLabel.alpha = 0
-                      //  cardOne.imageView.alpha = 0
-                        
-                        cardTwo.layer.transform = CATransform3DMakeRotation(0, 0.0, 1.0, 0.0)
-                        temp2.unreveal()
-                     //   cardTwo.titleLabel.alpha = 0
-                     //   cardTwo.imageView.alpha = 0
-                        
-                        
+                    UIView.addKeyframe(withRelativeStartTime: 1/2, relativeDuration: 1/2, animations: { [weak self] in
+                        self?.flipAndUnreveal(card: temp1, by: CGFloat(0))
+                        self?.flipAndUnreveal(card: temp2, by: CGFloat(0))
                     })
                     
                     
@@ -177,17 +159,6 @@ class MemoryGame<T : Flippable>{
         animation.startAnimation()
     }
     
-}
-
-
-protocol Flippable   {
-    func reveal()
-    func unreveal()
-    func matches(elem : Flippable) -> Bool
-
-   // func matches(cell : Flippable) -> Bool
- //   var flippableLayer : CALayer { set get }
- //   var isUserInteractionEnabled : Bool { set get }
 }
 
 
