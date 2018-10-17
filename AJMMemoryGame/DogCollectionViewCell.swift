@@ -8,9 +8,9 @@
 
 import UIKit
 
-class DogCollectionViewCell: UICollectionViewCell, Flippable {
 
-    
+class DogCollectionViewCell: UICollectionViewCell, Flippable {
+   
     func reveal() {
         titleLabel.alpha = 1
         imageView.alpha = 1
@@ -21,17 +21,8 @@ class DogCollectionViewCell: UICollectionViewCell, Flippable {
        imageView.alpha = 0
     }
     
-    var flippableAlpha: CGFloat = 0 {
-        didSet {
-            alpha = flippableAlpha
-        }
-    }
-    
-    var flippableLayer: CALayer = CALayer()
-        
-    
-    func matches(cell: Flippable) -> Bool {
-         guard let isDogCell = cell as? DogCollectionViewCell else { return false }
+    func matches(elem : Flippable) -> Bool {
+         guard let isDogCell = elem as? DogCollectionViewCell else { return false }
          return dog == isDogCell.dog
     }
     
@@ -51,7 +42,6 @@ class DogCollectionViewCell: UICollectionViewCell, Flippable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        flippableLayer = layer
         
     }
 
