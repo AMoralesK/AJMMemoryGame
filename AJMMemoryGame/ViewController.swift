@@ -48,8 +48,8 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.reloadData()
-        game = MemoryGame<DogCollectionViewCell>(from: collectionView)
-        
+       // game = MemoryGame<DogCollectionViewCell>(from: collectionView)
+        game = MemoryGame<DogCollectionViewCell>(usingGameDelegate: self)
     }
 
 }
@@ -78,3 +78,13 @@ extension ViewController : UICollectionViewDataSource, UICollectionViewDelegate 
     }
 }
 
+extension ViewController : MemoryGameDelegate {
+    
+    func isUserPickingSameCard(cardOne: UIView, cardTwo: UIView) -> Bool {
+        guard let tempOne = cardOne as? DogCollectionViewCell else { return false }
+        guard let tempTwo = cardTwo as? DogCollectionViewCell else { return false }
+
+        guard let indexPathOne = collectionView.indexPath(for: tempOne), let indexPathTwo = collectionView.indexPath(for: tempTwo) else { return false }
+        return (indexPathOne == indexPathTwo)
+    }
+}

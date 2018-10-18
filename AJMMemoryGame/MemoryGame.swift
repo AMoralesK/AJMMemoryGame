@@ -16,35 +16,27 @@ enum GameStatus{
     case cardsMatch
 }
 
+protocol MemoryGameDelegate: class {
+    func isUserPickingSameCard(cardOne : UIView, cardTwo : UIView) -> Bool
+}
 
 class MemoryGame<T : Flippable >{
     
     private var cardOne : T? = nil
     private var cardTwo : T? = nil
     private var lastTrackedCard : T? = nil
-    private let container : MemoryContainer
+    var delegate : MemoryGameDelegate
     
-    init(from containerType : MemoryContainer) {
-        container = containerType
+    init(usingGameDelegate delegate : MemoryGameDelegate) {
+        self.delegate = delegate
     }
     
-    private func isValid(_ card :  T) -> Bool {
-
-        guard container is UICollectionView else { return false }
-
-        let collectionView = container as! UICollectionView
-
-        guard let lastTrackedCard = lastTrackedCard else { return true }
-        guard let indexPathOne =  collectionView.indexPath(for: card as! UICollectionViewCell), let indexPathTwo = collectionView.indexPath(for: lastTrackedCard as! UICollectionViewCell) else { return false }
-        return (indexPathOne == indexPathTwo) ? false : true
     private func isPickingSameCard(_ card :  T) -> Bool {
         let viewOne = card as! UIView
         let viewTwo = lastTrackedCard as! UIView
         let isPickingSameCard = delegate.isUserPickingSameCard(cardOne: viewOne, cardTwo: viewTwo)
         return isPickingSameCard
     }
-    
-
     
     private func flipAndReveal(card : T, by degrees : CGFloat) {
         let tempCard = card as! UIView
@@ -55,13 +47,11 @@ class MemoryGame<T : Flippable >{
         }
     }
     
-    
     private func flipAndUnreveal(card : T, by degrees : CGFloat) {
         let tempCard = card as! UIView
         tempCard.layer.transform = CATransform3DMakeRotation(degrees, 0.0, 1.0, 0.0)
         card.unreveal()
     }
-    
     
     func prepare(_ card :  T, completion: ((_ status : GameStatus) -> Void)?) {
         
@@ -92,13 +82,10 @@ class MemoryGame<T : Flippable >{
             completion?(gameStatus)
         })
         
-       
     }
     
     
     private func revealCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool, _ gameStatus : GameStatus) ->()) {
-        
-    
         let cardOne : UIView = temp1 as! UIView
         let cardTwo : UIView  = temp2 as! UIView
 
@@ -157,7 +144,6 @@ class MemoryGame<T : Flippable >{
     }
     
     private func reverseCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool) ->() ) {
-        
         let animation = UIViewPropertyAnimator(duration: 2.0, curve: .easeIn)
         animation.addAnimations {
             
