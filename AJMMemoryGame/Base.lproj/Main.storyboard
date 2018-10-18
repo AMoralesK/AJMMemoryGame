@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wpY-pd-rPw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="AvenirNext.ttc">
-            <string>AvenirNext-Regular</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -78,13 +72,101 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="AOr-TM-2sZ">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="TPZ-5x-C0j">
+                            <connections>
+                                <segue destination="cH6-UU-CG8" kind="show" id="YbE-e4-kIl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="h3S-p5-0ud" id="4dO-cm-1Ht"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YbD-J9-RMm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wpY-pd-rPw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7vD-ai-qRT">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NxK-PL-dea"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o1L-eY-viP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+        <!--Helper View Controller-->
+        <scene sceneID="kbd-Uu-X6M">
+            <objects>
+                <viewController id="cH6-UU-CG8" customClass="HelperViewController" customModule="AJMMemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nIZ-Pn-SMP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIa-b3-5yW" customClass="HelperView" customModule="AJMMemoryGame" customModuleProvider="target">
+                                <rect key="frame" x="16" y="110" width="114" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oIa-b3-5yW" secondAttribute="height" multiplier="57:64" id="XDG-AY-Gby"/>
+                                    <constraint firstAttribute="width" constant="114" id="sZK-pE-5hL"/>
+                                </constraints>
+                            </view>
+                            <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAu-ek-CqU" customClass="HelperView" customModule="AJMMemoryGame" customModuleProvider="target">
+                                <rect key="frame" x="16" y="519" width="114" height="128"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UAc-tl-ito" customClass="HelperView" customModule="AJMMemoryGame" customModuleProvider="target">
+                                <rect key="frame" x="245" y="519" width="114" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </view>
+                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czP-BA-FFs" customClass="HelperView" customModule="AJMMemoryGame" customModuleProvider="target">
+                                <rect key="frame" x="245" y="110" width="114" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FAu-ek-CqU" firstAttribute="leading" secondItem="4Cq-rp-0RY" secondAttribute="leading" constant="16" id="54A-YU-jet"/>
+                            <constraint firstItem="4Cq-rp-0RY" firstAttribute="trailing" secondItem="czP-BA-FFs" secondAttribute="trailing" constant="16" id="5ZO-Jp-8tY"/>
+                            <constraint firstItem="4Cq-rp-0RY" firstAttribute="trailing" secondItem="UAc-tl-ito" secondAttribute="trailing" constant="16" id="8IW-CK-jE1"/>
+                            <constraint firstItem="czP-BA-FFs" firstAttribute="top" secondItem="4Cq-rp-0RY" secondAttribute="top" constant="46" id="Agb-ae-g9G"/>
+                            <constraint firstItem="4Cq-rp-0RY" firstAttribute="bottom" secondItem="UAc-tl-ito" secondAttribute="bottom" constant="20" id="DSj-Q7-Bob"/>
+                            <constraint firstItem="czP-BA-FFs" firstAttribute="width" secondItem="oIa-b3-5yW" secondAttribute="width" id="Eov-WU-DAX"/>
+                            <constraint firstItem="oIa-b3-5yW" firstAttribute="top" secondItem="4Cq-rp-0RY" secondAttribute="top" constant="46" id="EyV-vP-OQu"/>
+                            <constraint firstItem="czP-BA-FFs" firstAttribute="height" secondItem="oIa-b3-5yW" secondAttribute="height" id="GKF-aV-8Kp"/>
+                            <constraint firstItem="UAc-tl-ito" firstAttribute="width" secondItem="oIa-b3-5yW" secondAttribute="width" id="Jyd-a3-LGn"/>
+                            <constraint firstItem="oIa-b3-5yW" firstAttribute="leading" secondItem="4Cq-rp-0RY" secondAttribute="leading" constant="16" id="Ma7-2h-4lI"/>
+                            <constraint firstItem="UAc-tl-ito" firstAttribute="height" secondItem="oIa-b3-5yW" secondAttribute="height" id="QUK-OW-vw5"/>
+                            <constraint firstItem="FAu-ek-CqU" firstAttribute="width" secondItem="oIa-b3-5yW" secondAttribute="width" id="T3k-oL-7DP"/>
+                            <constraint firstItem="FAu-ek-CqU" firstAttribute="height" secondItem="oIa-b3-5yW" secondAttribute="height" id="qeL-69-q2b"/>
+                            <constraint firstItem="4Cq-rp-0RY" firstAttribute="bottom" secondItem="FAu-ek-CqU" secondAttribute="bottom" constant="20" id="r8y-c2-2tS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4Cq-rp-0RY"/>
+                    </view>
+                    <connections>
+                        <outlet property="viewFour" destination="UAc-tl-ito" id="lDU-Ha-ZdQ"/>
+                        <outlet property="viewOne" destination="oIa-b3-5yW" id="dI2-4b-SWF"/>
+                        <outlet property="viewThree" destination="FAu-ek-CqU" id="MIb-TF-ilL"/>
+                        <outlet property="viewTwo" destination="czP-BA-FFs" id="sFC-OP-bLy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="paQ-bh-aeC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1832.8" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>

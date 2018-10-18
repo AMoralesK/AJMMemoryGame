@@ -10,6 +10,7 @@
 		6060D08E2177C87C0089B52D /* Flippable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D08D2177C87C0089B52D /* Flippable.swift */; };
 		6060D0982177D0950089B52D /* AJMMemoryGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D0972177D0950089B52D /* AJMMemoryGameTests.swift */; };
 		6060D0A02177D1660089B52D /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D09F2177D1660089B52D /* TestCell.swift */; };
+		6060D0AA2178DF100089B52D /* HelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D0A92178DF100089B52D /* HelperViewController.swift */; };
 		608732DF2176B7860053D170 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608732DE2176B7860053D170 /* MemoryGame.swift */; };
 		60E2FC4C20337D2900F3CBC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E2FC4B20337D2900F3CBC6 /* AppDelegate.swift */; };
 		60E2FC4E20337D2900F3CBC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E2FC4D20337D2900F3CBC6 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		6060D0972177D0950089B52D /* AJMMemoryGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AJMMemoryGameTests.swift; sourceTree = "<group>"; };
 		6060D0992177D0950089B52D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6060D09F2177D1660089B52D /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
+		6060D0A92178DF100089B52D /* HelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViewController.swift; sourceTree = "<group>"; };
 		608732DE2176B7860053D170 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		60E2FC4820337D2900F3CBC6 /* AJMMemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJMMemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E2FC4B20337D2900F3CBC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				60E2FC5720337D2900F3CBC6 /* Info.plist */,
 				6060D08D2177C87C0089B52D /* Flippable.swift */,
 				608732DE2176B7860053D170 /* MemoryGame.swift */,
+				6060D0A92178DF100089B52D /* HelperViewController.swift */,
 			);
 			path = AJMMemoryGame;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6060D0AA2178DF100089B52D /* HelperViewController.swift in Sources */,
 				6060D08E2177C87C0089B52D /* Flippable.swift in Sources */,
 				60E2FC4E20337D2900F3CBC6 /* ViewController.swift in Sources */,
 				60E2FC5E2033828D00F3CBC6 /* DogCollectionViewCell.swift in Sources */,
