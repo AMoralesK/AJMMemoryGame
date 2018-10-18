@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AJMMemoryGame
 
 class HelperView : UIView, Flippable {
  

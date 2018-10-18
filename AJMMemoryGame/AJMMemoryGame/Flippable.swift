@@ -9,12 +9,12 @@
 import Foundation
 
 
-protocol Flippable {
+public protocol Flippable {
     func reveal()
     func unreveal()
     func matches(elem : Flippable) -> Bool
 }
 
-protocol MemoryContainer {
+public protocol MemoryContainer {
     
 }

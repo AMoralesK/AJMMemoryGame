@@ -8,9 +8,7 @@
 
 import UIKit
 import AVFoundation
-
-
-
+import AJMMemoryGame
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!

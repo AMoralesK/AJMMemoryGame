@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6060D08E2177C87C0089B52D /* Flippable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D08D2177C87C0089B52D /* Flippable.swift */; };
 		6060D0982177D0950089B52D /* AJMMemoryGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D0972177D0950089B52D /* AJMMemoryGameTests.swift */; };
 		6060D0A02177D1660089B52D /* TestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D09F2177D1660089B52D /* TestCell.swift */; };
 		6060D0AA2178DF100089B52D /* HelperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6060D0A92178DF100089B52D /* HelperViewController.swift */; };
-		608732DF2176B7860053D170 /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608732DE2176B7860053D170 /* MemoryGame.swift */; };
+		6083F1B8217915F900766589 /* AJMMemoryGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083F1B7217915F900766589 /* AJMMemoryGame.framework */; };
+		6083F1B9217915F900766589 /* AJMMemoryGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083F1B7217915F900766589 /* AJMMemoryGame.framework */; };
+		6083F1BA2179164E00766589 /* AJMMemoryGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6083F1B7217915F900766589 /* AJMMemoryGame.framework */; };
+		6083F1BB2179164E00766589 /* AJMMemoryGame.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6083F1B7217915F900766589 /* AJMMemoryGame.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6083F1BD2179176900766589 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6083F1BC2179176800766589 /* Info.plist */; };
 		60E2FC4C20337D2900F3CBC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E2FC4B20337D2900F3CBC6 /* AppDelegate.swift */; };
 		60E2FC4E20337D2900F3CBC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E2FC4D20337D2900F3CBC6 /* ViewController.swift */; };
 		60E2FC5120337D2900F3CBC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E2FC4F20337D2900F3CBC6 /* Main.storyboard */; };
@@ -30,21 +33,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		6060D0D22178FBAD0089B52D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6083F1BB2179164E00766589 /* AJMMemoryGame.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		6060D08D2177C87C0089B52D /* Flippable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flippable.swift; sourceTree = "<group>"; };
-		6060D0952177D0950089B52D /* AJMMemoryGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AJMMemoryGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6060D0952177D0950089B52D /* AJMMemoryGameSampleAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AJMMemoryGameSampleAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6060D0972177D0950089B52D /* AJMMemoryGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AJMMemoryGameTests.swift; sourceTree = "<group>"; };
 		6060D0992177D0950089B52D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6060D09F2177D1660089B52D /* TestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCell.swift; sourceTree = "<group>"; };
 		6060D0A92178DF100089B52D /* HelperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperViewController.swift; sourceTree = "<group>"; };
-		608732DE2176B7860053D170 /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
-		60E2FC4820337D2900F3CBC6 /* AJMMemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJMMemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6083F1B7217915F900766589 /* AJMMemoryGame.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AJMMemoryGame.framework; sourceTree = "<group>"; };
+		6083F1BC2179176800766589 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60E2FC4820337D2900F3CBC6 /* AJMMemoryGameSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AJMMemoryGameSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E2FC4B20337D2900F3CBC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60E2FC4D20337D2900F3CBC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		60E2FC5020337D2900F3CBC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60E2FC5220337D2900F3CBC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60E2FC5520337D2900F3CBC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		60E2FC5720337D2900F3CBC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60E2FC5D2033828D00F3CBC6 /* DogCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -53,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6083F1B9217915F900766589 /* AJMMemoryGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,63 +77,72 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6083F1BA2179164E00766589 /* AJMMemoryGame.framework in Frameworks */,
+				6083F1B8217915F900766589 /* AJMMemoryGame.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6060D0962177D0950089B52D /* AJMMemoryGameTests */ = {
+		6060D0962177D0950089B52D /* AJMMemoryGameTestsSampleApp */ = {
 			isa = PBXGroup;
 			children = (
 				6060D0972177D0950089B52D /* AJMMemoryGameTests.swift */,
 				6060D0992177D0950089B52D /* Info.plist */,
 				6060D09F2177D1660089B52D /* TestCell.swift */,
 			);
-			path = AJMMemoryGameTests;
+			path = AJMMemoryGameTestsSampleApp;
+			sourceTree = "<group>";
+		};
+		6060D0C82178EFAE0089B52D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		60E2FC3F20337D2800F3CBC6 = {
 			isa = PBXGroup;
 			children = (
-				60E2FC4A20337D2900F3CBC6 /* AJMMemoryGame */,
-				6060D0962177D0950089B52D /* AJMMemoryGameTests */,
+				6083F1B7217915F900766589 /* AJMMemoryGame.framework */,
+				60E2FC4A20337D2900F3CBC6 /* AJMMemoryGameSampleApp */,
+				6060D0962177D0950089B52D /* AJMMemoryGameTestsSampleApp */,
 				60E2FC4920337D2900F3CBC6 /* Products */,
+				6060D0C82178EFAE0089B52D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		60E2FC4920337D2900F3CBC6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				60E2FC4820337D2900F3CBC6 /* AJMMemoryGame.app */,
-				6060D0952177D0950089B52D /* AJMMemoryGameTests.xctest */,
+				60E2FC4820337D2900F3CBC6 /* AJMMemoryGameSampleApp.app */,
+				6060D0952177D0950089B52D /* AJMMemoryGameSampleAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		60E2FC4A20337D2900F3CBC6 /* AJMMemoryGame */ = {
+		60E2FC4A20337D2900F3CBC6 /* AJMMemoryGameSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				6083F1BC2179176800766589 /* Info.plist */,
 				60E2FC4B20337D2900F3CBC6 /* AppDelegate.swift */,
 				60E2FC4D20337D2900F3CBC6 /* ViewController.swift */,
 				60E2FC5D2033828D00F3CBC6 /* DogCollectionViewCell.swift */,
 				60E2FC4F20337D2900F3CBC6 /* Main.storyboard */,
 				60E2FC5220337D2900F3CBC6 /* Assets.xcassets */,
 				60E2FC5420337D2900F3CBC6 /* LaunchScreen.storyboard */,
-				60E2FC5720337D2900F3CBC6 /* Info.plist */,
-				6060D08D2177C87C0089B52D /* Flippable.swift */,
-				608732DE2176B7860053D170 /* MemoryGame.swift */,
 				6060D0A92178DF100089B52D /* HelperViewController.swift */,
 			);
-			path = AJMMemoryGame;
+			path = AJMMemoryGameSampleApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6060D0942177D0950089B52D /* AJMMemoryGameTests */ = {
+		6060D0942177D0950089B52D /* AJMMemoryGameSampleAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6060D09C2177D0950089B52D /* Build configuration list for PBXNativeTarget "AJMMemoryGameTests" */;
+			buildConfigurationList = 6060D09C2177D0950089B52D /* Build configuration list for PBXNativeTarget "AJMMemoryGameSampleAppTests" */;
 			buildPhases = (
 				6060D0912177D0950089B52D /* Sources */,
 				6060D0922177D0950089B52D /* Frameworks */,
@@ -127,26 +153,27 @@
 			dependencies = (
 				6060D09B2177D0950089B52D /* PBXTargetDependency */,
 			);
-			name = AJMMemoryGameTests;
+			name = AJMMemoryGameSampleAppTests;
 			productName = AJMMemoryGameTests;
-			productReference = 6060D0952177D0950089B52D /* AJMMemoryGameTests.xctest */;
+			productReference = 6060D0952177D0950089B52D /* AJMMemoryGameSampleAppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		60E2FC4720337D2900F3CBC6 /* AJMMemoryGame */ = {
+		60E2FC4720337D2900F3CBC6 /* AJMMemoryGameSampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMMemoryGame" */;
+			buildConfigurationList = 60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMMemoryGameSampleApp" */;
 			buildPhases = (
 				60E2FC4420337D2900F3CBC6 /* Sources */,
 				60E2FC4520337D2900F3CBC6 /* Frameworks */,
 				60E2FC4620337D2900F3CBC6 /* Resources */,
+				6060D0D22178FBAD0089B52D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = AJMMemoryGame;
+			name = AJMMemoryGameSampleApp;
 			productName = AJMCellAnimator;
-			productReference = 60E2FC4820337D2900F3CBC6 /* AJMMemoryGame.app */;
+			productReference = 60E2FC4820337D2900F3CBC6 /* AJMMemoryGameSampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -170,7 +197,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMMemoryGame" */;
+			buildConfigurationList = 60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMMemoryGameSampleApp" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -183,8 +210,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				60E2FC4720337D2900F3CBC6 /* AJMMemoryGame */,
-				6060D0942177D0950089B52D /* AJMMemoryGameTests */,
+				60E2FC4720337D2900F3CBC6 /* AJMMemoryGameSampleApp */,
+				6060D0942177D0950089B52D /* AJMMemoryGameSampleAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -201,6 +228,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6083F1BD2179176900766589 /* Info.plist in Resources */,
 				60E2FC5620337D2900F3CBC6 /* LaunchScreen.storyboard in Resources */,
 				60E2FC5320337D2900F3CBC6 /* Assets.xcassets in Resources */,
 				60E2FC5120337D2900F3CBC6 /* Main.storyboard in Resources */,
@@ -224,10 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6060D0AA2178DF100089B52D /* HelperViewController.swift in Sources */,
-				6060D08E2177C87C0089B52D /* Flippable.swift in Sources */,
 				60E2FC4E20337D2900F3CBC6 /* ViewController.swift in Sources */,
 				60E2FC5E2033828D00F3CBC6 /* DogCollectionViewCell.swift in Sources */,
-				608732DF2176B7860053D170 /* MemoryGame.swift in Sources */,
 				60E2FC4C20337D2900F3CBC6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +263,7 @@
 /* Begin PBXTargetDependency section */
 		6060D09B2177D0950089B52D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 60E2FC4720337D2900F3CBC6 /* AJMMemoryGame */;
+			target = 60E2FC4720337D2900F3CBC6 /* AJMMemoryGameSampleApp */;
 			targetProxy = 6060D09A2177D0950089B52D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -270,6 +296,10 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AJMMemoryGameTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -279,7 +309,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AJMMemoryGame.app/AJMMemoryGame";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AJMMemoryGameSampleApp.temp_caseinsensitive_rename.app/AJMMemoryGameSampleApp.temp_caseinsensitive_rename";
 			};
 			name = Debug;
 		};
@@ -291,6 +321,10 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = AJMMemoryGameTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -299,7 +333,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AJMMemoryGame.app/AJMMemoryGame";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AJMMemoryGameSampleApp.temp_caseinsensitive_rename.app/AJMMemoryGameSampleApp.temp_caseinsensitive_rename";
 			};
 			name = Release;
 		};
@@ -416,7 +450,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U4J2U6VS3H;
-				INFOPLIST_FILE = AJMMemoryGame/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/AJMMemoryGameSampleApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thekairuz.AJMCellAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -431,7 +470,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = U4J2U6VS3H;
-				INFOPLIST_FILE = AJMMemoryGame/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/AJMMemoryGameSampleApp/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.thekairuz.AJMCellAnimator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -443,7 +487,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6060D09C2177D0950089B52D /* Build configuration list for PBXNativeTarget "AJMMemoryGameTests" */ = {
+		6060D09C2177D0950089B52D /* Build configuration list for PBXNativeTarget "AJMMemoryGameSampleAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6060D09D2177D0950089B52D /* Debug */,
@@ -452,7 +496,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMMemoryGame" */ = {
+		60E2FC4320337D2800F3CBC6 /* Build configuration list for PBXProject "AJMMemoryGameSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60E2FC5820337D2900F3CBC6 /* Debug */,
@@ -461,7 +505,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMMemoryGame" */ = {
+		60E2FC5A20337D2900F3CBC6 /* Build configuration list for PBXNativeTarget "AJMMemoryGameSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				60E2FC5B20337D2900F3CBC6 /* Debug */,

@@ -9,25 +9,25 @@
 import Foundation
 import UIKit
 
-enum GameStatus{
+public enum GameStatus{
     case pickOneMoreCard
     case sameCardPicked
     case cardsDontMatch
     case cardsMatch
 }
 
-protocol MemoryGameDelegate: class {
+public protocol MemoryGameDelegate: class {
     func isUserPickingSameCard(cardOne : UIView, cardTwo : UIView) -> Bool
 }
 
-class MemoryGame<T : Flippable >{
+public class MemoryGame<T : Flippable >{
     
     private var cardOne : T? = nil
     private var cardTwo : T? = nil
     private var lastTrackedCard : T? = nil
-    var delegate : MemoryGameDelegate
+    public var delegate : MemoryGameDelegate
     
-    init(usingGameDelegate delegate : MemoryGameDelegate) {
+    public init(usingGameDelegate delegate : MemoryGameDelegate) {
         self.delegate = delegate
     }
     
@@ -53,7 +53,7 @@ class MemoryGame<T : Flippable >{
         card.unreveal()
     }
     
-    func prepare(_ card :  T, completion: ((_ status : GameStatus) -> Void)?) {
+    public func prepare(_ card :  T, completion: ((_ status : GameStatus) -> Void)?) {
         
         if cardOne == nil {
             cardOne = card

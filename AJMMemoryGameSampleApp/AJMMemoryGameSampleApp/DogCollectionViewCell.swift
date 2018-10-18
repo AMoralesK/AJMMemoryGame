@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AJMMemoryGame
 
 class DogCollectionViewCell: UICollectionViewCell, Flippable {
    

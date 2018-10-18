@@ -1,0 +1,11 @@
+framework module AJMMemoryGame {
+  umbrella header "AJMMemoryGame.h"
+
+  export *
+  module * { export * }
+}
+
+module AJMMemoryGame.Swift {
+    header "AJMMemoryGame-Swift.h"
+    requires objc
+}
