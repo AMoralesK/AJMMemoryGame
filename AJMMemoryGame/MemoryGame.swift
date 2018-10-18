@@ -37,6 +37,11 @@ class MemoryGame<T : Flippable >{
         guard let lastTrackedCard = lastTrackedCard else { return true }
         guard let indexPathOne =  collectionView.indexPath(for: card as! UICollectionViewCell), let indexPathTwo = collectionView.indexPath(for: lastTrackedCard as! UICollectionViewCell) else { return false }
         return (indexPathOne == indexPathTwo) ? false : true
+    private func isPickingSameCard(_ card :  T) -> Bool {
+        let viewOne = card as! UIView
+        let viewTwo = lastTrackedCard as! UIView
+        let isPickingSameCard = delegate.isUserPickingSameCard(cardOne: viewOne, cardTwo: viewTwo)
+        return isPickingSameCard
     }
     
 
@@ -60,13 +65,6 @@ class MemoryGame<T : Flippable >{
     
     func prepare(_ card :  T, completion: ((_ status : GameStatus) -> Void)?) {
         
-        if !isValid(card) {
-           /// lastTrackedCard = card
-            lastTrackedCard = nil
-            completion?(GameStatus.sameCardPicked)
-            return
-        }
-        
         if cardOne == nil {
             cardOne = card
         } else if cardTwo == nil {
@@ -76,6 +74,14 @@ class MemoryGame<T : Flippable >{
         guard let cardOne = cardOne, let cardTwo = cardTwo else {
             lastTrackedCard = card
             completion?(GameStatus.pickOneMoreCard)
+            return
+        }
+        
+        if isPickingSameCard(card) {
+            self.cardOne = nil
+            self.cardTwo = nil
+            self.lastTrackedCard = nil
+            completion?(GameStatus.sameCardPicked)
             return
         }
         
