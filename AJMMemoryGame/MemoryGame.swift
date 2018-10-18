@@ -9,17 +9,37 @@
 import Foundation
 import UIKit
 
-class MemoryGame<T : Flippable>{
+enum GameStatus{
+    case pickOneMoreCard
+    case sameCardPicked
+    case cardsDontMatch
+    case cardsMatch
+}
+
+
+class MemoryGame<T : Flippable >{
     
     private var cardOne : T? = nil
     private var cardTwo : T? = nil
     private var lastTrackedCard : T? = nil
+    private let container : MemoryContainer
     
-    private func isValid(_ card :  T, collectionView : UICollectionView) -> Bool {
+    init(from containerType : MemoryContainer) {
+        container = containerType
+    }
+    
+    private func isValid(_ card :  T) -> Bool {
+
+        guard container is UICollectionView else { return false }
+
+        let collectionView = container as! UICollectionView
+
         guard let lastTrackedCard = lastTrackedCard else { return true }
         guard let indexPathOne =  collectionView.indexPath(for: card as! UICollectionViewCell), let indexPathTwo = collectionView.indexPath(for: lastTrackedCard as! UICollectionViewCell) else { return false }
         return (indexPathOne == indexPathTwo) ? false : true
     }
+    
+
     
     private func flipAndReveal(card : T, by degrees : CGFloat) {
         let tempCard = card as! UIView
@@ -38,10 +58,12 @@ class MemoryGame<T : Flippable>{
     }
     
     
-    func prepare(_ card :  T, fromCollection collection: UICollectionView) {
+    func prepare(_ card :  T, completion: ((_ status : GameStatus) -> Void)?) {
         
-        if !isValid(card, collectionView: collection) {
-            lastTrackedCard = card
+        if !isValid(card) {
+           /// lastTrackedCard = card
+            lastTrackedCard = nil
+            completion?(GameStatus.sameCardPicked)
             return
         }
         
@@ -53,20 +75,22 @@ class MemoryGame<T : Flippable>{
         
         guard let cardOne = cardOne, let cardTwo = cardTwo else {
             lastTrackedCard = card
+            completion?(GameStatus.pickOneMoreCard)
             return
         }
         
-        revealCards(temp1: cardOne, temp2: cardTwo, completion: { [unowned self](status) in
+        revealCards(temp1: cardOne, temp2: cardTwo, completion: { [unowned self](status, gameStatus) in
             self.cardOne = nil
             self.cardTwo = nil
             self.lastTrackedCard = nil
+            completion?(gameStatus)
         })
         
        
     }
     
     
-    private func revealCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool) ->()) {
+    private func revealCards(temp1 : T, temp2 : T, completion:@escaping (_ status : Bool, _ gameStatus : GameStatus) ->()) {
         
     
         let cardOne : UIView = temp1 as! UIView
@@ -109,7 +133,7 @@ class MemoryGame<T : Flippable>{
             print(position)
             if !temp1.matches(elem: temp2) {
                 self.reverseCards(temp1: temp1, temp2: temp2, completion: { (status) in
-                    completion(true)
+                    completion(true, GameStatus.cardsDontMatch)
                 })
             } else {
                 
@@ -118,7 +142,7 @@ class MemoryGame<T : Flippable>{
                 
                 cardOne.alpha = 0.5
                 cardTwo.alpha = 0.5
-                completion(true)
+                completion(true, GameStatus.cardsMatch)
             }
             
         }
